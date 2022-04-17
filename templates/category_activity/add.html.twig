@@ -1,0 +1,34 @@
+{% extends 'baseBack.html.twig' %}
+
+
+{% block content %}
+
+    <div class="row mt-3">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">Ajouter une catégorie</div>
+                    <hr>
+                    {{ form_start(form) }}
+
+                    <div class="form-group">
+                        <label for="input-6">Nom de la catégorie</label>
+
+                        {{form_widget(form.nameCategoryActivity, {'id':'input-categorie','attr': {'class': 'form-control form-control-rounded','placeholder':'Titre'}}) }}
+                    </div>
+
+                    <div class="form-group">
+                        <center><button type="submit" class="btn btn-light btn-round px-5"> Ajouter la catégorie</button></center>
+                    </div>
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
+    </div><!--End Row-->
+
+
+
+{% endblock %}

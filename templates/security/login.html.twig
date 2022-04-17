@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{asset('back/css/pace.min.css')}}" rel="stylesheet"/>
+    <script src="{{ asset('back/js/pace.min.js') }}"></script>
+    <!--favicon-->
+    <link rel="icon" href="{{ asset('back/images/favicon.ico ')}}" type="image/x-icon">
+    <!-- simplebar CSS-->
+    <link href="{{ asset('back/plugins/simplebar/cssBack/simplebar.css ')}}" rel="stylesheet"/>
+    <!-- Bootstrap core CSS-->
+    <link href="{{ asset('back/css/bootstrap.min.css ')}}" rel="stylesheet"/>
+    <!-- animate CSS-->
+    <link href="{{ asset('back/css/animate.css ')}}" rel="stylesheet" type="text/css"/>
+    <!-- Icons CSS-->
+    <link href="{{ asset('back/css/icons.css') }}" rel="stylesheet" type="text/css"/>
+    <!-- Sidebar CSS-->
+    <link href="{{ asset('back/css/sidebar-menu.css ')}}" rel="stylesheet"/>
+    <!-- Custom Style-->
+    <link href="{{ asset('back/css/app-style.css ')}}" rel="stylesheet"/>
+
+</head>
+
+<body class="bg-theme bg-theme1">
+
+<!-- start loader -->
+<div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
+<!-- end loader -->
+
+<!-- Start wrapper-->
+<div id="wrapper">
+
+    <div class="loader-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+    <div class="card card-authentication1 mx-auto my-5">
+        <div class="card-body">
+            <div class="card-content p-2">
+                {% for message in app.flashes('success') %}
+                    <div class="alert text-success">
+                    <i class="fa fa-check"></i>
+                    Compte créer avec succés
+                </div>
+                {% endfor %}
+                <div class="text-center">
+                    <img src="{{ asset('back/images/logo-icon.png ')}}" alt="logo icon">
+                </div>
+                <div class="card-title text-uppercase text-center py-3">Sign In</div>
+
+                <form method="post">
+                    {% if error %}
+                        <div class="text-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                    {% for message in app.flashes('notice') %}
+                        <div class="alert text-success">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                    <div class="form-group">
+                        <label for="exampleInputUsername" class="sr-only">Username</label>
+                        <div class="position-relative has-icon-right">
+                            <input type="text" id="exampleInputUsername" class="form-control input-shadow" placeholder="Enter Username" name="_username">
+                            <div class="form-control-position">
+                                <i class="icon-user"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword" class="sr-only">Password</label>
+                        <div class="position-relative has-icon-right">
+                            <input type="password" id="exampleInputPassword" class="form-control input-shadow" placeholder="Enter Password" name="_password">
+                            <div class="form-control-position">
+                                <i class="icon-lock"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <div class="icheck-material-white">
+
+                            </div>
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                        <div class="form-group col-6 text-right">
+                            <a href="{{ path('forget_password') }}">Reset Password</a>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-light btn-block">Sign In</button>
+
+
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--start color switcher-->
+    <div class="right-sidebar">
+
+        <div class="right-sidebar-content">
+
+            <p class="mb-0">Gaussion Texture</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme1"></li>
+                <li id="theme2"></li>
+                <li id="theme3"></li>
+                <li id="theme4"></li>
+                <li id="theme5"></li>
+                <li id="theme6"></li>
+            </ul>
+
+            <p class="mb-0">Gradient Background</p>
+            <hr>
+
+            <ul class="switcher">
+                <li id="theme7"></li>
+                <li id="theme8"></li>
+                <li id="theme9"></li>
+                <li id="theme10"></li>
+                <li id="theme11"></li>
+                <li id="theme12"></li>
+                <li id="theme13"></li>
+                <li id="theme14"></li>
+                <li id="theme15"></li>
+            </ul>
+
+        </div>
+    </div>
+    <!--end color switcher-->
+
+</div><!--wrapper-->
+
+<script src="{{  asset('back/js/jquery.min.js')}}"></script>
+<script src="{{  asset('back/js/popper.min.js')}}"></script>
+<script src="{{  asset('back/js/bootstrap.min.js')}}"></script>
+
+<!-- simplebar js -->
+<script src="{{ asset('back/plugins/simplebar/js/simplebar.js ')}}"></script>
+<!-- sidebar-menu js -->
+<script src="{{asset ('back/js/sidebar-menu.js') }}"></script>
+
+<!-- Custom scripts -->
+<script src="{{  asset('back/js/app-script.js')}}"></script>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,195 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Activités
+{% endblock %}
+{% block content %}
+    <div class="home">
+        <div class="home_background parallax-window" data-parallax="scroll" data-image-src="{{ asset('front/images/blog_background.jpg') }}"></div>
+        <div class="home_content">
+            <div class="home_title">Activités</div>
+        </div>
+    </div>
+
+    <!-- Blog -->
+
+    <div class="blog">
+        <div class="container">
+            <div class="row">
+
+                <!-- Blog Content -->
+
+                <div class="col-lg-8">
+
+                    <div class="blog_post_container">
+                        {% for a in activity %}
+
+                        <div class="blog_post">
+                            <div class="blog_post_image">
+                                <img src="{{ asset('front/images/blog_3.jpg') }}" alt="https://unsplash.com/@stilclassics">
+                                <div class="blog_post_date d-flex flex-column align-items-center justify-content-center">
+                                    <div class="blog_post_month">{{ a.titleActivity }}</div>
+
+                                </div>
+                            </div>
+                            <div class="blog_post_meta">
+                                <ul>
+                                    <li class="blog_post_meta_item"><a href="">{{ a.category }}</a></li>
+                                    <li class="blog_post_meta_item"><a href="">{{ a.adressActivity }}</a></li>
+                                    <li class="blog_post_meta_item"><a href="">3 Comments</a></li>
+                                    <li class="blog_post_meta_item"><a href="{{path('activity_frontlike',{'id':a.id}) }}"> J'aime <i class="fa fa-thumbs-up"></i>{{ a.likes }}</a></li>
+                                </ul>
+                            </div>
+                            <div class="blog_post_title"><a href="#">{{ a.titleActivity }}</a></div>
+                            <div class="blog_post_text">
+                                <p>{{ a.descriptionActivity }}</p>
+                            </div>
+                            <div class="blog_post_link"><a href="{{path('activity_frontconsult',{'id':a.id}) }}">Consulter</a></div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+
+                    <div class="blog_navigation">
+                        <ul>
+                            <li class="blog_dot active"><div></div>01.</li>
+                            <li class="blog_dot"><div></div>02.</li>
+                            <li class="blog_dot"><div></div>03.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Blog Sidebar -->
+
+                <div class="col-lg-4 sidebar_col">
+
+
+
+                    <!-- Sidebar Archives -->
+                    <div class="sidebar_categories">
+                        <div class="sidebar_title">Categories</div>
+                        <div class="sidebar_list">
+                            <ul>
+                                {% for c in categories %}
+                                <li>
+                                    <a href=" {{ path('activity_frontlistcategory',{'id':c.id } ) }}">
+                                        {{ c.nameCategoryActivity }}
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar Latest Posts -->
+
+                    <div class="sidebar_latest_posts">
+                        <div class="sidebar_title">Latest Posts</div>
+                        <div class="latest_posts_container">
+                            <ul>
+
+                                <!-- Latest Post -->
+                                <li class="latest_post clearfix">
+                                    <div class="latest_post_image">
+                                        <a href="#"><img src="{{ asset('front/images/latest_1.jpg') }}" alt=""></a>
+                        </div>
+                        <div class="latest_post_content">
+                            <div class="latest_post_title trans_200"><a href="#">A simple blog post</a></div>
+                            <div class="latest_post_meta">
+                                <div class="latest_post_author trans_200"><a href="#">by Jane Smith</a></div>
+                                <div class="latest_post_date trans_200"><a href="#">Aug 25, 2016</a></div>
+                            </div>
+                        </div>
+                        </li>
+
+                        <!-- Latest Post -->
+                        <li class="latest_post clearfix">
+                            <div class="latest_post_image">
+                                <a href="#"><img src="{{ asset('front/images/latest_2.jpg') }}" alt=""></a>
+                            </div>
+                            <div class="latest_post_content">
+                                <div class="latest_post_title trans_200"><a href="#">Dream destination for you</a></div>
+                                <div class="latest_post_meta">
+                                    <div class="latest_post_author trans_200"><a href="#">by Jane Smith</a></div>
+                                    <div class="latest_post_date trans_200"><a href="#">Aug 25, 2016</a></div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Latest Post -->
+                        <li class="latest_post clearfix">
+                            <div class="latest_post_image">
+                                <a href="#"><img src="{{ asset('front/images/latest_3.jpg') }}" alt=""></a>
+                            </div>
+                            <div class="latest_post_content">
+                                <div class="latest_post_title trans_200"><a href="#">Tips to travel light</a></div>
+                                <div class="latest_post_meta">
+                                    <div class="latest_post_author trans_200"><a href="#">by Jane Smith</a></div>
+                                    <div class="latest_post_date trans_200"><a href="#">Aug 25, 2016</a></div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Latest Post -->
+                        <li class="latest_post clearfix">
+                            <div class="latest_post_image">
+                                <a href="#"><img src="{{ asset('front/images/latest_4.jpg') }}" alt=""></a>
+                            </div>
+                            <div class="latest_post_content">
+                                <div class="latest_post_title trans_200"><a href="#">How to pick your vacation</a></div>
+                                <div class="latest_post_meta">
+                                    <div class="latest_post_author trans_200"><a href="#">by Jane Smith</a></div>
+                                    <div class="latest_post_date trans_200"><a href="#">Aug 25, 2016</a></div>
+                                </div>
+                            </div>
+                        </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Sidebar Gallery -->
+                <div class="sidebar_gallery">
+                    <div class="sidebar_title">Instagram</div>
+                    <div class="gallery_container">
+                        <ul class="gallery_items d-flex flex-row align-items-start justify-content-between flex-wrap">
+                            <li class="gallery_item">
+                                <a class="colorbox" href="https://images.unsplash.com/photo-1473625247510-8ceb1760943f?ixlib=rb-0.3.5&s=c0996cd16eda8c6f54c398de02d03cd3&auto=format&fit=crop&w=720&q=80">
+                                    <img src="{{ asset('front/images/gallery_1.jpg') }}" alt="https://unsplash.com/@mantashesthaven">
+                                </a>
+                            </li>
+                            <li class="gallery_item">
+                                <a class="colorbox" href="https://images.unsplash.com/photo-1495162048225-6b3b37b8a69e?ixlib=rb-0.3.5&s=861dd3c7b9d3e735d7fd7cbb1eefed64&auto=format&fit=crop&w=720&q=80">
+                                    <img src="{{ asset('front/images/gallery_2.jpg') }}" alt="https://unsplash.com/@kensuarez">
+                                </a>
+                            </li>
+                            <li class="gallery_item">
+                                <a class="colorbox" href="https://images.unsplash.com/photo-1502646275263-04be86afa386?ixlib=rb-0.3.5&s=682a41d7d9bf6e3feabc73a5fdd61dd2&auto=format&fit=crop&w=720&q=80">
+                                    <img src="{{ asset('front/images/gallery_3.jpg') }}" alt="https://unsplash.com/@jakobowens1">
+                                </a>
+                            </li>
+                            <li class="gallery_item">
+                                <a class="colorbox" href="https://images.unsplash.com/photo-1484820301304-0b43512779dc?ixlib=rb-0.3.5&s=7a3393e9f507fb4718c36337a8014c52&auto=format&fit=crop&w=720&q=80">
+                                    <img src="{{ asset('front/images/gallery_4.jpg') }}" alt="https://unsplash.com/@seefromthesky">
+                                </a>
+                            </li>
+                            <li class="gallery_item">
+                                <a class="colorbox" href="https://images.unsplash.com/photo-1490380169520-0a4b88d52565?ixlib=rb-0.3.5&s=7e6b68b1911fb4ffeea4c0750b8a5269&auto=format&fit=crop&w=720&q=80">
+                                    <img src="{{ asset('front/images/gallery_5.jpg') }}" alt="https://unsplash.com/@deannaritchie">
+                                </a>
+                            </li>
+                            <li class="gallery_item">
+                                <a class="colorbox" href="https://images.unsplash.com/photo-1504434026032-a7e440a30b68?ixlib=rb-0.3.5&s=2cc35bf903b78ba4f7f7ed69bc2abe3f&auto=format&fit=crop&w=720&q=80">
+                                    <img src="{{ asset('front/images/gallery_6.jpg') }}" alt="https://unsplash.com/@benobro">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+{% endblock %}

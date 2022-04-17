@@ -1,0 +1,41 @@
+{% extends 'baseBack.html.twig' %}
+
+
+{% block content %}
+
+    <div class="row mt-3">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">MODIFIER LA RESERVATION</div>
+                    <hr>
+                    {{ form_start(form) }}
+
+                    <div class="form-group">
+                        <label for="input-6">Titre</label>
+
+                        {{form_widget(form.nbParticipants , {'id':'input-titre','attr': {'class': 'form-control form-control-rounded','placeholder':'Titre'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="input-7">Action</label>
+
+                        {{form_widget(form.Status, {'id':'input-description','attr': {'class': 'form-control form-control-rounded','placeholder':'Description'}}) }}
+                    </div>
+                    <div class="form-group">
+                    <center><button type="submit" class="btn btn-success btn-round px-5">Confirmé RESERVATION</button></center>
+                    </div>
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4"></div>
+    </div><!--End Row-->
+
+
+
+{% endblock %}
+
+
+

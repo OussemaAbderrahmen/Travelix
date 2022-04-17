@@ -1,0 +1,77 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Hello reservation controller!{% endblock %}
+
+{% block content %}
+    <div class="row mt-3">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title" align="center">LISTE DES RESERVATIONS</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+
+                                <th scope="col">Nom </th>
+                                <th scope="col">Prénom</th>
+                                <th scope="col">Nombre de réservations</th>
+                                <th scope="col">ID event</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Actions</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for e in reservation %}
+                                <tr>
+
+                                    <td>{{ e.nom }}</td>
+                                    <td>{{ e.prenom }}</td>
+                                    <td>{{ e.nbParticipants }}</td>
+                                    <td>{{ e.event }}</td>
+
+                                    {% if e.getStatus==0 %}
+
+                                    <td>Refusée</td>
+
+                                        {% elseif e.getStatus ==1  %}
+                                            <td>Approuvée</td>
+                                        {%  elseif e.getStatus == ""  %}
+                                            <td>En Attente</td>
+                                        {% endif %}
+                                    <td> <!-- Call to action buttons -->
+                                        <ul class="list-inline m-0">
+                                            <li class="list-inline-item">
+                                                <a href="{{ path('reservation_edit',{id:e.id}) }}"> <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="update"><i class="fa fa-edit"></i></button></a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="{{ path('contact',{id:e.id}) }}"> <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="confirmé mail"><i class="fa fa-envelope"></i></button></a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a href="{{ path('reservation_delete',{id:e.id}) }}"> <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button></a>
+                                            </li>
+                                        </ul></td>
+                                </tr>
+                            {% endfor %}
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-1"></div>
+    </div><!--End Row-->
+    <div class="row mt-3">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-5">
+          </div>
+        <div class="col-lg-3"></div>
+    </div><!--End Row-->
+    <!--start overlay-->
+    <div class="overlay toggle-menu"></div>
+    <!--end overlay-->
+{% endblock %}

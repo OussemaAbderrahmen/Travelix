@@ -1,0 +1,89 @@
+{% extends 'baseBack.html.twig' %}
+
+
+{% block content %}
+
+            <div class="row mt-3">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title">MODIFIER UN EVENNEMENT</div>
+                            <hr>
+                            {{ form_start(form) }}
+                            <div class="row">
+                                <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="input-6">Titre</label>
+
+                                {{form_widget(form.titre, {'id':'input-titre','attr': {'class': 'form-control form-control-rounded','placeholder':'Saisir un titre'}}) }}
+                            </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="input-11">Nombre de personnes</label>
+
+                                        {{form_widget(form.nb_persons, {'id':'input-nbpersonne','attr': {'class': 'form-control form-control-rounded','placeholder':'Date Debut'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="input-8">Date Debut</label>
+
+                                {{form_widget(form.start_date, {'id':'input-datedebut','attr': {'class': 'form-control form-control-rounded','placeholder':'Date Debut'}}) }}
+
+                            </div>
+                                </div>
+                                    <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="input-9">Date Fin</label>
+
+                                {{form_widget(form.end_date, {'id':'input-datefin','attr': {'class': 'form-control form-control-rounded','placeholder':'Date Debut'}}) }}
+
+                            </div>
+                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-7">Description</label>
+
+                                {{form_widget(form.description, {'id':'input-description','attr': {'class': 'form-control form-control-rounded','placeholder':'Description'}}) }}
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="input-10">Prix</label>
+
+                                        {{form_widget(form.price_event, {'id':'input-prix','attr': {'class': 'form-control form-control-rounded','placeholder':'Date Debut'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="input-11">Cathégorie</label>
+
+                                {{form_widget(form.category, {'id':'input-nbpersonne','attr': {'class': 'form-control form-control-rounded','placeholder':'Date Debut'}}) }}
+                            </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-11">image</label>
+
+                                {{form_widget(form.imagefilename, {'id':'input-image','attr': {'class': 'form-control form-control-rounded','placeholder':'image'}}) }}
+                            </div>
+
+                            <div class="form-group">
+                                <center><button type="submit" class="btn btn-success btn-round px-5">modifier l'événnement</button></center>
+
+                            </div>
+                            {{ form_end(form) }}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2"></div>
+            </div><!--End Row-->
+
+
+{% endblock %}
